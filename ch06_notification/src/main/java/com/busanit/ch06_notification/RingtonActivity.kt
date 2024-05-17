@@ -53,5 +53,8 @@ class RingtonActivity : AppCompatActivity() {
                 vibrator.vibrate(500) // 500 밀리초 동안 진동
             }
         }
+
     }
+
+
 }
