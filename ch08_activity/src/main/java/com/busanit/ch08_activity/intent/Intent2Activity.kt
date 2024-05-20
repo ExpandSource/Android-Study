@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.busanit.ch08_activity.databinding.ActivityIntent2Binding
 
+// 인텐트 결과 반환
 class Intent2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
