@@ -23,18 +23,16 @@ class ListViewActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // 데이터 준비, 자동차의 목록 생성
-        data class Car(val name: String, val maker: String)
-
         var carList: MutableList<Car> = mutableListOf<Car>()
         for (i in 1..100) {
             carList.add(Car("자동차 $i", "제조사 $i"))
         }
 
         // 어댑터 생성
-        // val adapter = ListViewAdapter(carList, layoutInflater, this)
+        val adapter = ListViewAdapter(carList, layoutInflater, this)
 
         // 리스트뷰에 어댑터를 설정
-        //binding.listView.adapter = adapter
+        binding.listView.adapter = adapter
 
     }
 
