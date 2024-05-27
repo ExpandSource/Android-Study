@@ -4,6 +4,9 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Environment
+import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -40,27 +43,40 @@ class ExternalActivity : AppCompatActivity() {
 
         val permissions = arrayOf(
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.MANAGE_EXTERNAL_STORAGE
         )
 
-        val permissionRequest = mutableListOf<String>() // 비승인 권한 목록
-        // 권한 체크
-        for (permission in permissions) {
-            if (ContextCompat.checkSelfPermission(
-                    this,
-                    permission
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                permissionRequest.add(permission)
+        val launcher: ActivityResultLauncher<String> =
+            registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+                if (isGranted) {
+                    Toast.makeText(this, "권한 허가", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "권한 비허가", Toast.LENGTH_SHORT).show()
+                }
             }
-        }
+        launcher.launch(permissions[0])
+
+//        val permissionRequest = mutableListOf<String>() // 비승인 권한 목록
+//        // 권한 체크
+//        for (permission in permissions) {
+//            if (ContextCompat.checkSelfPermission(
+//                    this,
+//                    permission
+//                ) != PackageManager.PERMISSION_GRANTED
+//            ) {
+//                permissionRequest.add(permission)
+//            }
+//        }
 
         // 권한 요청
+/*
         if (permissionRequest.isNotEmpty()) {
             ActivityCompat.requestPermissions(this, permissionRequest.toTypedArray(), REQUEST_CODE)
-        }
 
-        /*
+        }
+*/
+
         // 권한 부여 확인
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -73,8 +89,8 @@ class ExternalActivity : AppCompatActivity() {
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE
             )
             // 권한 요청
+            launcher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
         }
-*/
         val fileName = "external_storage.txt"
 
         binding.run {

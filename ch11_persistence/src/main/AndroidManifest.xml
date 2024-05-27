@@ -5,6 +5,7 @@
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <!--
   안드로이드 33버전부터 외부 저장소 접근 방식이 제한적으로 변경됨
           AUDIO, IMAGE, VIDEO 등으로 외부저장소 범위를 분리하여 선언
@@ -22,6 +23,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidStudy">
+        <activity
+            android:name=".e_room.RoomActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".d_sqlite.SqliteActivity"
             android:exported="true">
