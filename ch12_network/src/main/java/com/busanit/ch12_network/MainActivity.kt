@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.busanit.ch12_network.databinding.ActivityMainBinding
-import com.busanit.ch12_network.retrofit.model.Post
 import com.busanit.ch12_network.retrofit.RetrofitClient
+import com.busanit.ch12_network.retrofit.model.Post
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,6 +13,8 @@ import retrofit2.Response
 private const val TAG = "mylog"
 
 class MainActivity : AppCompatActivity() {
+
+
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
