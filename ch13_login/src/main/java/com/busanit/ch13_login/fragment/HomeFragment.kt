@@ -29,4 +29,6 @@ class HomeFragment : Fragment() {
 
         binding.textViewHello.text = "안녕하세요, ${username}님"
     }
+
+
 }
