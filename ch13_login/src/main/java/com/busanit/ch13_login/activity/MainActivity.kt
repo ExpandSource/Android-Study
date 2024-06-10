@@ -23,10 +23,10 @@ class MainActivity : AppCompatActivity() {
 
 
         // 저장된 토큰을 보호된 리소스 요청 시 사용
-        // val token = sharedPreferences.getString("token", "") ?: ""
+//         val token = sharedPreferences.getString("token", "") ?: ""
 
         // 인증 요청시 HTTP 헤더에 "Bearer {jwt_token}" 요청
-        // callProtect("Bearer $token")
+//         callProtect("Bearer $token")
 
 
 
